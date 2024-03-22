@@ -5,10 +5,12 @@ import { TypeOrmModule, getDataSourceToken, getRepositoryToken } from '@nestjs/t
 import { customTaskRepositoryMethods } from './task.repository';
 import { Task } from './task.entity';
 import { DataSource } from 'typeorm';
+import { AuthModule } from 'src/auth/auth.module';
 
 @Module({
   imports: [
     TypeOrmModule.forFeature([Task]),
+    AuthModule,
   ],
   controllers: [TasksController],
   providers: [
